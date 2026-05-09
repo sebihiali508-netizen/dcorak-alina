@@ -1,7 +1,16 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/client",
   "installCommand": "npm install",
-  "framework": null,
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "outputDirectory": "dist/client",
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs20.x",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/(.*)", "destination": "/api/index" }
+  ]
 }
