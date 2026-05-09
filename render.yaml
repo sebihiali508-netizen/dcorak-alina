@@ -2,8 +2,8 @@ services:
   - type: web
     name: dcorak-alina
     env: node
-    buildCommand: npm install && npx tsr generate && npx vite build
-    startCommand: node .output/server/index.mjs
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server/index.js
     envVars:
       - key: VITE_SUPABASE_URL
         sync: false
